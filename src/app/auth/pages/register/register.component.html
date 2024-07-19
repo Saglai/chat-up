@@ -1,0 +1,39 @@
+<div class="layout">
+    <div class="header">
+        <h1>Chat up</h1>
+    </div>
+
+    <div class="main">
+        <mat-card *ngIf="!isUserConnected" class="register-card" appearance="outlined">
+            <mat-card-content>
+                <div class="register-card__title"><span>Чат</span></div>
+                <div><p>Чтобы присоединиться к чату введите свое имя и нажмите ОК</p></div>
+                <form class="register-card__form" (submit)="onSubmitUser()">
+                    <input class="name-input" type="text" name="" id="" [(ngModel)]="userName" name="userName"/>
+                    <button class="submit-button" mat-raised-button type="submit">OK</button>
+                </form>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card *ngIf="isUserConnected" class="chat-card" appearance="outlined">
+            <mat-card-content>
+                <div class="message-card">
+                    <div class="spanner"></div>
+                    <ul *ngIf="messages.length > 0">
+                        <li class="message-item" *ngFor="let message of messages">{{message}}</li>
+                    </ul>
+
+                    <div *ngIf="messages.length === 0" class="not-found">Напишите сообщение в чат</div>
+                </div>
+
+                <div class="send-message-form">
+                    <form class="message-form" (submit)="onSubmitMessage()">
+                        <input class="message-input" type="text" [(ngModel)]="message" name="message" />
+                        <button class="submit-button" mat-raised-button type="submit">Отправить</button>
+                    </form>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+
