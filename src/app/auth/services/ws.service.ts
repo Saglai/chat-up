@@ -5,7 +5,7 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class WsService {
-  private url = 'https://jpvsq7-176-208-23-222.ru.tuna.am/ws';
+  private url = 'https://99rw2t-176-208-23-222.ru.tuna.am/ws';
   private wsServer!: WebSocket;
   private lastMessage: Subject<string> = new Subject();
 
